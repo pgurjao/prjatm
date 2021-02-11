@@ -20,8 +20,9 @@ public class TelaLogin {
 
 		System.out.print("\n \n Por favor digite o PIN: ");
 		pin = sc.nextInt();
-		sc.close();
 		LoginCtrl.login(numeroConta,pin);
+		sc.close();
+		
 	}
 
 	public static String getNumeroConta() {

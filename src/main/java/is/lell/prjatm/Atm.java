@@ -8,7 +8,7 @@ public class Atm {
 	public static void main(String[] args) {
 		
 		TelaLogin.apresentar();
-		System.out.println("\n" + "\n" + "===   F   i   m   ===");
+		System.out.println("\n" + "\n" + "===   F   i   m     CORRETO  ===");
 		
 		/*
 		 * switch (choice) { case 1: System.out.println("Verificando saldo..." + "\n");

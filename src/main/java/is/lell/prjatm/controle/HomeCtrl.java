@@ -1,6 +1,7 @@
 package is.lell.prjatm.controle;
 
 import is.lell.prjatm.telas.TelaSaldo;
+import is.lell.prjatm.telas.TelaSaque;
 
 public class HomeCtrl {
 	
@@ -9,21 +10,24 @@ public class HomeCtrl {
 		switch (choice) {
 		case 1:
 			TelaSaldo.apresentar();
+//			System.out.println("Tela Ver Saldo");
 			break;
 
 		case 2:
-			
+			TelaSaque.apresentar();
+//			System.out.println("Tela Sacar Dinheiro");
 			break;
 			
 		case 3:
-			
+			System.out.println("Depositar dinheiro");
 			break;
 			
 		case 4:
-			
+			System.out.println("Tela SAIR");
 			break;			
 
 		default:
+			System.out.println("tela DEFAULT");
 			break;
 		}
 	}
