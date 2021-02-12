@@ -1,14 +1,13 @@
 package is.lell.prjatm;
 
-//import is.lell.prjatm.telas.TelaHome;
-import is.lell.prjatm.telas.TelaLogin;
+import is.lell.prjatm.visao.TelaLogin;
 
 public class Atm {
 
 	public static void main(String[] args) {
 		
 		TelaLogin.apresentar();
-		System.out.println("\n" + "\n" + "===   F   i   m     CORRETO  ===");
+		System.out.println("\n" + "\n" + "===   F   i   m     (Exit: 0)  ===");
 		
 		/*
 		 * switch (choice) { case 1: System.out.println("Verificando saldo..." + "\n");

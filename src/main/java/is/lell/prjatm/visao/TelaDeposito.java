@@ -1,4 +1,4 @@
-package is.lell.prjatm.telas;
+package is.lell.prjatm.visao;
 
 public class TelaDeposito {
 

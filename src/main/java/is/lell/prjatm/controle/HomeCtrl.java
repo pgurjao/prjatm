@@ -1,7 +1,7 @@
 package is.lell.prjatm.controle;
 
-import is.lell.prjatm.telas.TelaSaldo;
-import is.lell.prjatm.telas.TelaSaque;
+import is.lell.prjatm.visao.TelaSaldo;
+import is.lell.prjatm.visao.TelaSaque;
 
 public class HomeCtrl {
 	

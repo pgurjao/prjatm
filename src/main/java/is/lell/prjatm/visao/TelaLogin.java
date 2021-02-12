@@ -1,17 +1,19 @@
-package is.lell.prjatm.telas;
+package is.lell.prjatm.visao;
 
 import java.util.Scanner;
+
+import java.util.Locale;
 
 import is.lell.prjatm.controle.LoginCtrl;
 
 public class TelaLogin {
 	
-	private static String numeroConta;
-	
-	private static int pin = 0;
-	
 	public static void apresentar () {
 
+		Locale.setDefault(Locale.US);
+		String numeroConta;
+		int pin = 0;
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Bem vindo \n\n");
@@ -20,16 +22,14 @@ public class TelaLogin {
 
 		System.out.print("\n \n Por favor digite o PIN: ");
 		pin = sc.nextInt();
+		
 		LoginCtrl.login(numeroConta,pin);
+		
+		if (LoginCtrl.getStatus() != 0 ) {
+			System.out.println(LoginCtrl.getStatusText() );
+		}
+		
 		sc.close();
 		
-	}
-
-	public static String getNumeroConta() {
-		return numeroConta;
-	}
-
-	public static int getPin() {
-		return pin;
 	}
 }
