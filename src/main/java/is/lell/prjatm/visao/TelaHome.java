@@ -2,9 +2,7 @@ package is.lell.prjatm.visao;
 
 import java.util.Scanner;
 
-import is.lell.prjatm.Dados;
 import is.lell.prjatm.controle.HomeCtrl;
-import is.lell.prjatm.controle.LoginCtrl;
 import is.lell.prjatm.modelo.ModeloConta;
 
 public class TelaHome {

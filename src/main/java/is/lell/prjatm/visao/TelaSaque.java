@@ -2,9 +2,6 @@ package is.lell.prjatm.visao;
 
 import java.util.Scanner;
 
-import is.lell.prjatm.Dados;
-import is.lell.prjatm.controle.LoginCtrl;
-
 public class TelaSaque {
 
 	public static void apresentar() {
