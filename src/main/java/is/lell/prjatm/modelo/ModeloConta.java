@@ -41,7 +41,7 @@ public class ModeloConta {
 			//			System.out.println("breakLoop= " + breakLoop);
 		}
 		while (!breakLoop);
-		//		while (!contaLocalizada || !buscaEncerrada );
+		//		while ( !(contaLocalizada || fimDoArray) );
 
 		if (contaLocalizada) {
 			if (Dados.senhas[indiceConta] == pin ) {
@@ -63,25 +63,20 @@ public class ModeloConta {
 	}
 
 	public static String getClientName() {		
-
-		return Dados.nome[indiceConta];
+		return Dados.nomes[indiceConta];
 	}
 
 	public static double getSaldo() {
-
-		double saldo = Dados.saldos[indiceConta];		
-
-		return saldo;
+		return Dados.saldos[indiceConta];
 	}
 
 	public static int setSaldo(double valor) {
-
 		int exitCode = 0;
 
-		if(getSaldo() - valor < 0) {
-			exitCode = -1;           // saldo insuficiente
+		if(temSaldoSuficiente(valor) ) {			
 			return exitCode;
 		} else {
+			exitCode = -1;			// saldo insuficiente
 			return exitCode;
 		}
 	}
@@ -94,7 +89,7 @@ public class ModeloConta {
 			return false;
 		}
 	}
-	
+
 	public static String getStatusText() {
 		return statusText;
 	}

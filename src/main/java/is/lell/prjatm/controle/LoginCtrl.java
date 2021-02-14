@@ -16,20 +16,16 @@ public class LoginCtrl {
 			TelaHome.apresentar();
 
 		} else {
-
 			status = -1;
-			String statusText = ModeloConta.getStatusText();
-
+			statusText = ModeloConta.getStatusText();
 		}
 	}
 
 	public static int getStatus() {
-
 		return status;
 	}
 
 	public static String getStatusText() {
-
 		return statusText;
 	}
 }

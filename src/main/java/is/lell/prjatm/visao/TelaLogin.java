@@ -19,14 +19,15 @@ public class TelaLogin {
 		System.out.println("Bem vindo \n\n");
 		System.out.print("Por favor digite o número da conta: ");
 		numeroConta = sc.nextLine();
-
-		System.out.print("\n \n Por favor digite o PIN: ");
+		
+		System.out.print("Por favor digite o PIN: ");
 		pin = sc.nextInt();
+		System.out.println("");
 		
 		LoginCtrl.login(numeroConta,pin);
 		
 		if (LoginCtrl.getStatus() != 0 ) {
-			System.out.println(LoginCtrl.getStatusText() );
+			System.out.println("Erro: " + LoginCtrl.getStatusText() );
 		}
 		
 		sc.close();

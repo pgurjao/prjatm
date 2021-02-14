@@ -20,9 +20,11 @@ public class TelaHome {
 		System.out.println("     2- Sacar dinheiro");
 		System.out.println("     3- Depositar dinheiro");
 		System.out.println("     4- Sair \n");
-		System.out.print("\n Enter a choice: ");
+		System.out.print("Enter a choice: ");
 		
 		escolha = sc.nextInt();
+		
+		System.out.println("");
 		
 		HomeCtrl.apresentar(escolha);
 		sc.close();
