@@ -3,6 +3,7 @@ package is.lell.prjatm.visao;
 import java.util.Scanner;
 
 import is.lell.prjatm.controle.HomeCtrl;
+import is.lell.prjatm.controle.InputCtrl;
 import is.lell.prjatm.modelo.ModeloConta;
 
 public class TelaHome {
@@ -25,7 +26,12 @@ public class TelaHome {
 
 			if (!primeiraExecucao && escolha != 4) {
 				System.out.print("\nDeseja realizar mais alguma operação (S/N) ? ");
-				novaOperacao = Character.toLowerCase(sc.nextLine().charAt(0));
+				InputCtrl.getUserInput("char");
+				
+				if (InputCtrl.getStatus() == 0 ) {
+					novaOperacao = InputCtrl.getChar();
+				}								
+//				novaOperacao = Character.toLowerCase(sc.next().charAt(0));
 //				System.out.println("novaOperacao:" + novaOperacao + "");
 			}
 			if (novaOperacao == 's') {

@@ -8,6 +8,9 @@ public class InputCtrl {
 	private static int returnInteger = 0;
 	private static double returnDouble = 0.00;
 	private static String returnString = "";
+	private static char returnChar;
+	
+
 
 	public static void getUserInput (String inputType) {
 
@@ -42,6 +45,17 @@ public class InputCtrl {
 			status = 0;
 			break;
 			
+			
+		case "char":
+			try {
+				returnChar = Character.toLowerCase(scanner.next().charAt(0));
+				returnString = scanner.nextLine();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+			status = 0;
+			break;
+			
 		default:
 			// passou parâmetro errado pro método, deu ruim geral
 			status = -2;
@@ -63,6 +77,10 @@ public class InputCtrl {
 
 	public static String getString() {
 		return returnString;
+	}
+	
+	public static char getChar() {
+		return returnChar;
 	}
 	
 	/*                == Superseeded by getUserInput ==
