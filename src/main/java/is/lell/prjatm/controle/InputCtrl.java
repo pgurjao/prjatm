@@ -1,8 +1,8 @@
-package is.lell.prjatm.modelo;
+package is.lell.prjatm.controle;
 
 import java.util.Scanner;
 
-public class ModeloInput {
+public class InputCtrl {
 
 	private static int status = -1;
 	private static int returnInteger = 0;
@@ -22,7 +22,6 @@ public class ModeloInput {
 				e.printStackTrace();
 			}
 			status = 0;
-
 			break;
 
 		case "double":
@@ -36,10 +35,15 @@ public class ModeloInput {
 				e.printStackTrace();
 			}
 			status = 0;
-
 			break;
 
+		case "string":
+			returnString = scanner.nextLine();
+			status = 0;
+			break;
+			
 		default:
+			// passou parâmetro errado pro método, deu ruim geral
 			status = -2;
 			break;
 		}
@@ -55,6 +59,10 @@ public class ModeloInput {
 
 	public static double getDouble() {
 		return returnDouble;
+	}
+
+	public static String getString() {
+		return returnString;
 	}
 	
 	/*                == Superseeded by getUserInput ==
