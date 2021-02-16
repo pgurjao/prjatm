@@ -6,26 +6,56 @@ import is.lell.prjatm.controle.HomeCtrl;
 import is.lell.prjatm.modelo.ModeloConta;
 
 public class TelaHome {
-	
-	public static void apresentar () {
-		
-		int escolha = -1;
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Bem vindo(a), " + ModeloConta.getClientName() + "\n");
-		System.out.println("Menu principal \n");
-		System.out.println("     1- Ver saldo");
-		System.out.println("     2- Sacar dinheiro");
-		System.out.println("     3- Depositar dinheiro");
-		System.out.println("     4- Sair \n");
-		System.out.print("Enter a choice: ");
-		
-		escolha = sc.nextInt();
-		
-		System.out.println("");
-		
-		HomeCtrl.apresentar(escolha);
-		sc.close();
-	}
 
+
+
+
+	public static void apresentar () {
+
+		int escolha = -1;
+		boolean primeiraExecucao = true;
+		char novaOperacao = 's';
+
+		Scanner sc = new Scanner(System.in);
+
+		/*
+		 * System.out.println("primeira exec: " + primeiraExecucao);
+		 * System.out.println("novaOperacao: " + novaOperacao);
+		 * System.out.println("escolha: " + escolha);
+		 */
+
+		while ( (escolha > 0 && escolha < 4 ) || novaOperacao == 's' ) {
+
+			if (!primeiraExecucao && escolha != 4) {
+				System.out.print("\nDeseja realizar mais alguma operação (S/N) ? ");
+				novaOperacao = Character.toLowerCase(sc.next().charAt(0));
+//				System.out.println("novaOperacao:" + novaOperacao + "");
+			}
+			if (novaOperacao == 's') {
+
+				//System.out.println("primeira exec: " + primeiraExecucao);
+				System.out.println("Bem vindo(a), " + ModeloConta.getClientName() + "\n");
+				System.out.println("Menu principal \n");
+				System.out.println("     1- Ver saldo");
+				System.out.println("     2- Sacar dinheiro");
+				System.out.println("     3- Depositar dinheiro");
+				System.out.println("     4- Sair \n");
+				System.out.print("Enter a choice: ");
+
+				escolha = Integer.parseInt( sc.next() );
+
+				System.out.println("");
+
+				primeiraExecucao = false;
+
+				HomeCtrl.apresentar(escolha);
+
+				escolha = -1;
+			} else {
+				escolha = 4;
+				novaOperacao = 'n';
+				HomeCtrl.apresentar(escolha);
+			}
+		}
+	}
 }

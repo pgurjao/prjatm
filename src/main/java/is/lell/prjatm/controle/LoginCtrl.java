@@ -13,6 +13,7 @@ public class LoginCtrl {
 		if(ModeloConta.login(numeroConta, pin) ) {
 
 			status = 0;
+			statusText = ModeloConta.getStatusText();
 			TelaHome.apresentar();
 
 		} else {

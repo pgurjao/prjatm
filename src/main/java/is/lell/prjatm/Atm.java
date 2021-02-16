@@ -2,13 +2,19 @@ package is.lell.prjatm;
 
 import is.lell.prjatm.visao.TelaLogin;
 
+//import java.util.Scanner;
+
 public class Atm {
 
+//	public Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		
+
 		TelaLogin.apresentar();
-		System.out.println("\n" + "\n" + "===   F   i   m     (Exit: 0)  ===");
-		
+		System.out.print("\n"
+							+ "===   F   i   m     (Exit: 0)  =X=X=X=");
+//		sc.close();
 		/*
 		 * switch (choice) { case 1: System.out.println("Verificando saldo..." + "\n");
 		 * System.out.println("Seu saldo é: " + Dados.saldos[indiceConta]); break;

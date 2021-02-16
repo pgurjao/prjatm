@@ -1,5 +1,6 @@
 package is.lell.prjatm.controle;
 
+import is.lell.prjatm.visao.TelaSair;
 import is.lell.prjatm.visao.TelaSaldo;
 import is.lell.prjatm.visao.TelaSaque;
 
@@ -23,7 +24,7 @@ public class HomeCtrl {
 			break;
 			
 		case 4:
-			System.out.println("Tela SAIR");
+			TelaSair.apresentar();
 			break;			
 
 		default:
@@ -31,5 +32,4 @@ public class HomeCtrl {
 			break;
 		}
 	}
-	
 }

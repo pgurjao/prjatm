@@ -6,6 +6,8 @@ import java.util.Locale;
 
 import is.lell.prjatm.controle.LoginCtrl;
 
+import is.lell.prjatm.modelo.ModeloInput;
+
 public class TelaLogin {
 	
 	public static void apresentar () {
@@ -21,7 +23,14 @@ public class TelaLogin {
 		numeroConta = sc.nextLine();
 		
 		System.out.print("Por favor digite o PIN: ");
-		pin = sc.nextInt();
+		
+		ModeloInput.getUserInput("integer");
+		
+		if (ModeloInput.getStatus() == 0 ) {
+			pin = ModeloInput.getInteger();
+		}
+		
+		
 		System.out.println("");
 		
 		LoginCtrl.login(numeroConta,pin);
@@ -30,7 +39,7 @@ public class TelaLogin {
 			System.out.println("Erro: " + LoginCtrl.getStatusText() );
 		}
 		
-		sc.close();
+//		sc.close();
 		
 	}
 }

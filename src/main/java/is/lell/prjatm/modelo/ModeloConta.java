@@ -45,8 +45,7 @@ public class ModeloConta {
 
 		if (contaLocalizada) {
 			if (Dados.senhas[indiceConta] == pin ) {
-				statusText = "PIN correto";
-				//			pinCorreto = true;
+				statusText = "PIN correto, usuário logado com sucesso";
 				return true;
 			} else {
 				statusText = "PIN INCORRETO";
@@ -70,7 +69,7 @@ public class ModeloConta {
 		return Dados.saldos[indiceConta];
 	}
 
-	public static int setSaldo(double valor) {
+	public static int sacar(double valor) {
 		int exitCode = 0;
 
 		if(temSaldoSuficiente(valor) ) {			
