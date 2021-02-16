@@ -7,9 +7,6 @@ import is.lell.prjatm.modelo.ModeloConta;
 
 public class TelaHome {
 
-
-
-
 	public static void apresentar () {
 
 		int escolha = -1;
@@ -28,7 +25,7 @@ public class TelaHome {
 
 			if (!primeiraExecucao && escolha != 4) {
 				System.out.print("\nDeseja realizar mais alguma operação (S/N) ? ");
-				novaOperacao = Character.toLowerCase(sc.next().charAt(0));
+				novaOperacao = Character.toLowerCase(sc.nextLine().charAt(0));
 //				System.out.println("novaOperacao:" + novaOperacao + "");
 			}
 			if (novaOperacao == 's') {

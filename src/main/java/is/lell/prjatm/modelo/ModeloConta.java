@@ -12,8 +12,6 @@ public class ModeloConta {
 
 		boolean contaLocalizada = false;
 		boolean fimDoArray = false;
-		boolean breakLoop = false;
-		//		boolean pinCorreto = false;
 
 		int i = 0;
 
@@ -32,16 +30,7 @@ public class ModeloConta {
 					return false;
 				}
 			}
-			if (contaLocalizada || fimDoArray) {
-				breakLoop=true;
-			}
-			//			System.out.println("i= " + i);
-			//			System.out.println("contaLocalizada= " + contaLocalizada);
-			//			System.out.println("Fim do Array= " + fimDoArray);
-			//			System.out.println("breakLoop= " + breakLoop);
-		}
-		while (!breakLoop);
-		//		while ( !(contaLocalizada || fimDoArray) );
+		} while ( !(contaLocalizada || fimDoArray) );
 
 		if (contaLocalizada) {
 			if (Dados.senhas[indiceConta] == pin ) {

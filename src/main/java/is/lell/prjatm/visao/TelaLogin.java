@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 import java.util.Locale;
 
+import is.lell.prjatm.controle.InputCtrl;
 import is.lell.prjatm.controle.LoginCtrl;
-
-import is.lell.prjatm.modelo.ModeloInput;
 
 public class TelaLogin {
 	
@@ -20,16 +19,17 @@ public class TelaLogin {
 		
 		System.out.println("Bem vindo \n\n");
 		System.out.print("Por favor digite o número da conta: ");
-		numeroConta = sc.nextLine();
+		
+		InputCtrl.getUserInput("string");
+		numeroConta = InputCtrl.getString();
 		
 		System.out.print("Por favor digite o PIN: ");
 		
-		ModeloInput.getUserInput("integer");
+		InputCtrl.getUserInput("integer");
 		
-		if (ModeloInput.getStatus() == 0 ) {
-			pin = ModeloInput.getInteger();
+		if (InputCtrl.getStatus() == 0 ) {
+			pin = InputCtrl.getInteger();
 		}
-		
 		
 		System.out.println("");
 		

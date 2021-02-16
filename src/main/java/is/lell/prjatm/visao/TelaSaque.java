@@ -2,8 +2,8 @@ package is.lell.prjatm.visao;
 
 import java.util.Scanner;
 
+import is.lell.prjatm.controle.InputCtrl;
 import is.lell.prjatm.controle.SaqueCtrl;
-import is.lell.prjatm.modelo.ModeloInput;
 
 public class TelaSaque {
 
@@ -17,11 +17,11 @@ public class TelaSaque {
 							+ "\n");							
 		System.out.print("Digite o valor que deseja sacar: ");
 
-		ModeloInput.getUserInput("double");
+		InputCtrl.getUserInput("double");
 
-		if (ModeloInput.getStatus() == 0 ) {
+		if (InputCtrl.getStatus() == 0 ) {
 			
-			valorSaque = ModeloInput.getDouble();
+			valorSaque = InputCtrl.getDouble();
 			SaqueCtrl.saque(valorSaque);
 			
 			if (SaqueCtrl.getStatus() == 0) {
@@ -35,7 +35,7 @@ public class TelaSaque {
 			}
 		} else {
 			System.out.println("Erro ModeloInput: "
-								+ ModeloInput.getStatus() );
+								+ InputCtrl.getStatus() );
 			
 		}
 
