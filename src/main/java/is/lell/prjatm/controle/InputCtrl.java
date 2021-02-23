@@ -9,8 +9,6 @@ public class InputCtrl {
 	private static double returnDouble = 0.00;
 	private static String returnString = "";
 	private static char returnChar;
-	
-
 
 	public static void getUserInput (String inputType) {
 
@@ -22,9 +20,13 @@ public class InputCtrl {
 			try {
 				returnInteger = Integer.parseInt(scanner.nextLine());
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+//				e.printStackTrace();
+				System.out.println("InputCtrl error: number.Format.Exception.stringToInteger");
+				status = -2;
 			}
-			status = 0;
+			if (status != -2) {
+				status = 0;
+			}
 			break;
 
 		case "double":
@@ -35,9 +37,13 @@ public class InputCtrl {
 			try {
 				returnDouble = Double.parseDouble(returnString);
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+//				e.printStackTrace();
+				System.out.println("InputCtrl error: number.Format.Exception.stringToDouble");
+				status = -2;
 			}
-			status = 0;
+			if (status != -2) {
+				status = 0;
+			}
 			break;
 
 		case "string":
@@ -51,14 +57,18 @@ public class InputCtrl {
 				returnChar = Character.toLowerCase(scanner.next().charAt(0));
 				returnString = scanner.nextLine();
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+//				e.printStackTrace();
+				System.out.println("InputCtrl error: number.Format.Exception.stringToChar");
+				status = -2;
 			}
-			status = 0;
+			if (status != -2) {
+				status = 0;
+			}
 			break;
 			
 		default:
 			// passou parâmetro errado pro método, deu ruim geral
-			status = -2;
+			status = -3;
 			break;
 		}
 	}

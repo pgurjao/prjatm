@@ -36,7 +36,7 @@ public class TelaLogin {
 		LoginCtrl.login(numeroConta,pin);
 		
 		if (LoginCtrl.getStatus() != 0 ) {
-			System.out.println("Erro: " + LoginCtrl.getStatusText() );
+			System.out.println("ERRO: " + LoginCtrl.getStatusText() );
 		}
 		
 //		sc.close();

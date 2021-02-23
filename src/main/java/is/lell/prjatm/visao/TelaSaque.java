@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import is.lell.prjatm.controle.InputCtrl;
 import is.lell.prjatm.controle.SaqueCtrl;
+import is.lell.prjatm.modelo.ModeloConta;
 
 public class TelaSaque {
 
@@ -20,32 +21,24 @@ public class TelaSaque {
 		InputCtrl.getUserInput("double");
 
 		if (InputCtrl.getStatus() == 0 ) {
-			
+
 			valorSaque = InputCtrl.getDouble();
 			SaqueCtrl.saque(valorSaque);
-			
+
 			if (SaqueCtrl.getStatus() == 0) {
 				System.out.println("Saque de "
 									+ valorSaque
-									+ " realizado com sucesso");
-				
+									+ " realizado com sucesso. \n");
+				System.out.println("Seu saldo atualizado é: "
+									+ ModeloConta.getSaldo() );
+
 			} else {
-				System.out.println("Erro SaqueCtrl: "
+				System.out.println("ERRO SaqueCtrl: "
 									+ SaqueCtrl.getStatusText() );
 			}
 		} else {
-			System.out.println("Erro ModeloInput: "
+			System.out.println("ERRO ModeloInput: "
 								+ InputCtrl.getStatus() );
-			
 		}
-
-		/*
-		 * Scanner sc = new Scanner(System.in);
-		 * 
-		 * double valorSaque = ModeloInput.toDouble( sc.next() );
-		 */
-
-		//		System.out.println("valorSaque: " + valorSaque);
-		//		sc.close();
 	}
 }

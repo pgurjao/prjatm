@@ -12,7 +12,7 @@ public class Atm {
 
 		TelaLogin.apresentar();
 		System.out.print("\n"
-							+ "===   F   i   m     (Exit: 0)  =X=X=X=");
+							+ ".       F   i   m     (Exit: 0)");
 //		sc.close();
 	}
 }

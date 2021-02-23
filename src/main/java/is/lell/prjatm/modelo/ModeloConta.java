@@ -11,26 +11,45 @@ public class ModeloConta {
 	public static boolean login(String numeroConta,int pin) {
 
 		boolean contaLocalizada = false;
-		boolean fimDoArray = false;
+//		boolean fimDoArray = false;
 
 		int i = 0;
 
-		do {
-			if (i < Dados.contas.length ) {
-				if (Dados.contas[i].equalsIgnoreCase(numeroConta)) {
+		// Procura numero da conta no array sequencialmente
+		// até que seja localizado ou até o fim do array.
+//		
+//		for (
+//		
+//		
+//		do {
+//			if (i < Dados.contas.length) {
+//				if (Dados.contas[i].equalsIgnoreCase(numeroConta)) {
+//					statusText = "Conta localizada";
+//					indiceConta = i;
+//					contaLocalizada = true;
+//				}
+//				i++;
+//			} else {
+//				//if ( /*i == Dados.contas.length && */ contaLocalizada == false) {
+//					statusText = "conta NÃO localizada";
+//					fimDoArray = true;
+////					return false;
+//				//}
+//			}
+//		} while (!(contaLocalizada || fimDoArray));
+
+		while ( !(contaLocalizada || (i == Dados.contas.length ) ) ) {
+			if (i < Dados.contas.length) {
+				if (Dados.contas[i].equalsIgnoreCase(numeroConta) ) {
 					statusText = "Conta localizada";
 					indiceConta = i;
 					contaLocalizada = true;
 				}
-				i++;
 			} else {
-				if (i == Dados.contas.length && contaLocalizada == false) {
-					statusText = "conta NÃO localizada";
-					fimDoArray = true;
-					return false;
-				}
+				statusText = "Conta NÃO localizada";
 			}
-		} while ( !(contaLocalizada || fimDoArray) );
+			i++;
+		}
 
 		if (contaLocalizada) {
 			if (Dados.senhas[indiceConta] == pin ) {
@@ -59,13 +78,15 @@ public class ModeloConta {
 	}
 
 	public static int sacar(double valor) {
-		int exitCode = 0;
 
-		if(temSaldoSuficiente(valor) ) {			
-			return exitCode;
+		int status = 0;
+
+		if(temSaldoSuficiente(valor) ) {
+			Dados.saldos[indiceConta] -= valor;
+			return status;
 		} else {
-			exitCode = -1;			// saldo insuficiente
-			return exitCode;
+			status = -1;			// Saldo Insuficiente
+			return status;
 		}
 	}
 
