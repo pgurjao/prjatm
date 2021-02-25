@@ -1,5 +1,6 @@
 package is.lell.prjatm.controle;
 
+import is.lell.prjatm.visao.TelaDeposito;
 import is.lell.prjatm.visao.TelaSair;
 import is.lell.prjatm.visao.TelaSaldo;
 import is.lell.prjatm.visao.TelaSaque;
@@ -18,7 +19,8 @@ public class HomeCtrl {
 			break;
 			
 		case 3:
-			System.out.println("Depositar dinheiro");
+			TelaDeposito.apresentar();
+			//			System.out.println("Depositar dinheiro");
 			break;
 			
 		case 4:

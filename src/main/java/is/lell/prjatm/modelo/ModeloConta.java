@@ -93,12 +93,14 @@ public class ModeloConta {
 		return Dados.saldos[indiceConta];
 	}
 
-	public static int sacar(double valor) {
+	public static int sacar(double valorSaque) {
 
 		int status = 0;
+		
+		valorSaque = Math.abs(valorSaque);
 
-		if(temSaldoSuficiente(valor) ) {
-			Dados.saldos[indiceConta] -= valor;
+		if(temSaldoSuficiente(valorSaque) ) {
+			Dados.saldos[indiceConta] -= valorSaque;
 			statusText = statusEnum.SAQUE_OK.toString();
 			return status;
 		} else {
@@ -110,6 +112,8 @@ public class ModeloConta {
 
 	public static boolean temSaldoSuficiente(double valor) {
 
+		valor = Math.abs(valor);
+		
 		if (getSaldo() >= valor ) {
 			return true;
 		} else {
@@ -119,5 +123,13 @@ public class ModeloConta {
 
 	public static String getStatusText() {
 		return statusText;
+	}
+
+	public static int depositar(double valorDeposito) {
+
+		valorDeposito = Math.abs(valorDeposito);
+		Dados.saldos[indiceConta] += valorDeposito;
+		statusText = statusEnum.DEPOSITO_OK.toString();
+		return 0;
 	}
 }
