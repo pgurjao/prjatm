@@ -6,13 +6,12 @@ public class TelaSaldo {
 	
 	public static void apresentar() {
 		
-		
-		
 		System.out.print("========================="
 				+ "\n"
 				+ "Tela do Saldo"
 				+ "\n"
 				+ "\n");
-		System.out.printf("O saldo da sua conta é: %.2f %n %n", SaldoCtrl.saldo() );
+		System.out.printf("O saldo da sua conta é: %.2f %n", SaldoCtrl.saldo() );
+		System.out.println("=========================\n");
 	}
 }

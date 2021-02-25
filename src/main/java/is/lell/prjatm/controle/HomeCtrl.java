@@ -11,12 +11,10 @@ public class HomeCtrl {
 		switch (choice) {
 		case 1:
 			TelaSaldo.apresentar();
-//			System.out.println("Tela Ver Saldo");
 			break;
 
 		case 2:
 			TelaSaque.apresentar();
-//			System.out.println("Tela Sacar Dinheiro");
 			break;
 			
 		case 3:
@@ -28,7 +26,7 @@ public class HomeCtrl {
 			break;			
 
 		default:
-			System.out.println("tela DEFAULT");
+			System.out.println("\n \n tela DEFAULT - você não deveria estar aqui \n \n");
 			break;
 		}
 	}

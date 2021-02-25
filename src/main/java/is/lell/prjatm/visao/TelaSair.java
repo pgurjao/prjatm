@@ -20,5 +20,4 @@ public class TelaSair {
 			    + "\n" + "               |" 
 				+ "\n" + "\n" + "  Obrigado por usar o Banco Pilantra S.A.");
 	}
-
 }

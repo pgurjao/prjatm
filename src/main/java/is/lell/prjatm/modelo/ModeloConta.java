@@ -2,15 +2,7 @@ package is.lell.prjatm.modelo;
 
 import is.lell.prjatm.Dados;
 
-enum statusEnum {
-	CONTA_LOCALIZADA,
-	CONTA_NAO_LOCALIZADA,
-	PIN_CORRETO_LOGIN_OK,
-	PIN_INCORRETO,
-	SALDO_INSUFICIENTE,
-	SAQUE_OK,
-	DEPOSITO_OK
-}
+import is.lell.prjatm.modelo.enums.statusEnum;
 
 public class ModeloConta {
 
@@ -107,9 +99,11 @@ public class ModeloConta {
 
 		if(temSaldoSuficiente(valor) ) {
 			Dados.saldos[indiceConta] -= valor;
+			statusText = statusEnum.SAQUE_OK.toString();
 			return status;
 		} else {
 			status = -1;			// Saldo Insuficiente
+			statusText = statusEnum.SALDO_INSUFICIENTE.toString();
 			return status;
 		}
 	}

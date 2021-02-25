@@ -1,12 +1,10 @@
 package is.lell.prjatm.visao;
 
-//import java.util.Scanner;
 
 import java.util.Locale;
 
 import is.lell.prjatm.controle.InputCtrl;
 import is.lell.prjatm.controle.LoginCtrl;
-
 public class TelaLogin {
 	
 	public static void apresentar () {
@@ -14,8 +12,6 @@ public class TelaLogin {
 		Locale.setDefault(Locale.US);
 		String numeroConta;
 		int pin = 0;
-		
-//		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Bem vindo \n\n");
 		System.out.print("Por favor digite o número da conta: ");
@@ -38,8 +34,5 @@ public class TelaLogin {
 		if (LoginCtrl.getStatus() != 0 ) {
 			System.out.println("ERRO: " + LoginCtrl.getStatusText() );
 		}
-		
-//		sc.close();
-		
 	}
 }
