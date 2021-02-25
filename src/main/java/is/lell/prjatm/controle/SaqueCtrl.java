@@ -8,12 +8,12 @@ public class SaqueCtrl {
 	
 	private static int status = 0;
 
-	public static void saque (double valor) {
+	public static void sacar (double valor) {
 		
 		status = ModeloConta.sacar(valor);
 
 		if (status != 0 ) {
-			statusText = "Saldo insuficiente";			
+			statusText = ModeloConta.getStatusText();
 		}
 	}
 	
