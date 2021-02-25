@@ -14,12 +14,12 @@ public class TelaSaque {
 
 		if (InputCtrl.getStatus() == 0 ) {
 
-			double valorSaque = (InputCtrl.getDouble());
+			double valorSaque = Math.abs(InputCtrl.getDouble() );
 			SaqueCtrl.sacar(valorSaque);
 
 			if (SaqueCtrl.getStatus() == 0) {
 				System.out.printf("Saque de %.2f realizado com sucesso %n"
-									, Math.abs(valorSaque));
+									, valorSaque);
 				
 				System.out.printf("Seu saldo atualizado é: %.2f %n"
 									, ModeloConta.getSaldo() );
