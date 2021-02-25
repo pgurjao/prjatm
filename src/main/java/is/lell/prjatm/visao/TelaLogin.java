@@ -1,6 +1,6 @@
 package is.lell.prjatm.visao;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import java.util.Locale;
 
@@ -15,7 +15,7 @@ public class TelaLogin {
 		String numeroConta;
 		int pin = 0;
 		
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Bem vindo \n\n");
 		System.out.print("Por favor digite o número da conta: ");

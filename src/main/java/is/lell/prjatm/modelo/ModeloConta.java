@@ -2,24 +2,56 @@ package is.lell.prjatm.modelo;
 
 import is.lell.prjatm.Dados;
 
+enum statusEnum {
+	CONTA_LOCALIZADA,
+	CONTA_NAO_LOCALIZADA,
+	PIN_CORRETO_LOGIN_OK,
+	PIN_INCORRETO,
+	SALDO_INSUFICIENTE,
+	SAQUE_OK,
+	DEPOSITO_OK
+}
+
 public class ModeloConta {
 
 	private static int indiceConta = -1;
 
 	private static String statusText;
 
-	public static boolean login(String numeroConta,int pin) {
+	public static boolean login(String numeroConta, int pin) {
 
 		boolean contaLocalizada = false;
-//		boolean fimDoArray = false;
-
 		int i = 0;
 
-		// Procura numero da conta no array sequencialmente
+		// Procura sequencialmente no ARRAY o numeroConta até o final
+		// e interrompe a busca antes se localizar
+		
+		for (i = 0; i < Dados.contas.length ; i++) {
+			if (Dados.contas[i].equalsIgnoreCase(numeroConta) ) {
+				contaLocalizada = true;
+				statusText = statusEnum.CONTA_LOCALIZADA.toString();
+				indiceConta = i;
+				i = Dados.contas.length;	// break
+			}
+		}
+	
+		if (contaLocalizada) {
+			if (Dados.senhas[indiceConta] == pin ) {
+				statusText = statusEnum.PIN_CORRETO_LOGIN_OK.toString();
+				return true;
+			} else {
+				statusText = statusEnum.PIN_INCORRETO.toString();
+				return false;
+			}
+		} else {
+			statusText = statusEnum.CONTA_NAO_LOCALIZADA.toString();
+			return false;
+		}
+		
+//		boolean fimDoArray = false;
+//
+		// Procura número da conta no array sequencialmente
 		// até que seja localizado ou até o fim do array.
-//		
-//		for (
-//		
 //		
 //		do {
 //			if (i < Dados.contas.length) {
@@ -37,32 +69,24 @@ public class ModeloConta {
 //				//}
 //			}
 //		} while (!(contaLocalizada || fimDoArray));
+//		
+//		
+		// Mesma coisa do LOOP "do" acima, mas utilizando "while"
+//		
+//		
+//		while ( !(contaLocalizada || (i == Dados.contas.length ) ) ) {
+//			if (i < Dados.contas.length) {
+//				if (Dados.contas[i].equalsIgnoreCase(numeroConta) ) {
+//					statusText = "Conta localizada";
+//					indiceConta = i;
+//					contaLocalizada = true;
+//				}
+//			} else {
+//				statusText = "Conta NÃO localizada";
+//			}
+//			i++;
+//		}
 
-		while ( !(contaLocalizada || (i == Dados.contas.length ) ) ) {
-			if (i < Dados.contas.length) {
-				if (Dados.contas[i].equalsIgnoreCase(numeroConta) ) {
-					statusText = "Conta localizada";
-					indiceConta = i;
-					contaLocalizada = true;
-				}
-			} else {
-				statusText = "Conta NÃO localizada";
-			}
-			i++;
-		}
-
-		if (contaLocalizada) {
-			if (Dados.senhas[indiceConta] == pin ) {
-				statusText = "PIN correto, usuário logado com sucesso";
-				return true;
-			} else {
-				statusText = "PIN INCORRETO";
-				return false;
-			}
-		} else {
-			statusText = "Conta NÃO localizada";
-			return false;
-		}
 	}
 
 	public static int getIndiceConta() {
