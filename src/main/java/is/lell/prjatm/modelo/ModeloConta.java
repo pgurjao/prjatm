@@ -9,6 +9,18 @@ public class ModeloConta {
 	private static int indiceConta = -1;
 
 	private static String statusText;
+	
+	private String numero;
+	
+	private int pin;
+	
+	private double saldo;
+	
+	private String nome;
+	
+//	private List<Transacao> transacoes = new ArrayList<Transacao>;
+	
+	
 
 	public static boolean login(String numeroConta, int pin) {
 
@@ -88,6 +100,14 @@ public class ModeloConta {
 	public static String getClientName() {		
 		return Dados.nomes[indiceConta];
 	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public static String getStatusText() {
+		return statusText;
+	}
 
 	public static double getSaldo() {
 		return Dados.saldos[indiceConta];
@@ -121,9 +141,7 @@ public class ModeloConta {
 		}
 	}
 
-	public static String getStatusText() {
-		return statusText;
-	}
+	
 
 	public static int depositar(double valorDeposito) {
 
@@ -132,4 +150,6 @@ public class ModeloConta {
 		statusText = statusEnum.DEPOSITO_OK.toString();
 		return 0;
 	}
+
+	
 }
