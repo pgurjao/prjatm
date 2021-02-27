@@ -4,7 +4,7 @@ package is.lell.prjatm.visao;
 
 import is.lell.prjatm.controle.HomeCtrl;
 import is.lell.prjatm.controle.InputCtrl;
-import is.lell.prjatm.modelo.ModeloConta;
+import is.lell.prjatm.modelo.Conta;
 
 public class TelaHome {
 
@@ -14,7 +14,7 @@ public class TelaHome {
 		
 		do {
 			
-			apresentarMenuPrincipal(ModeloConta.getClientName());
+			apresentarMenuPrincipal(Conta.getNome());
 
 			InputCtrl.getUserInput("integer");
 

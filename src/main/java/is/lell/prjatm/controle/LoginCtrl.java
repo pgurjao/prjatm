@@ -1,6 +1,8 @@
 package is.lell.prjatm.controle;
 
-import is.lell.prjatm.modelo.ModeloConta;
+import is.lell.prjatm.modelo.Conta;
+import is.lell.prjatm.modelo.ContaService;
+import is.lell.prjatm.modelo.ModeloDatabase;
 import is.lell.prjatm.visao.TelaHome;
 
 public class LoginCtrl {
@@ -10,15 +12,19 @@ public class LoginCtrl {
 
 	public static void login(String numeroConta, int pin) {
 
-		if(ModeloConta.login(numeroConta, pin) ) {
+		ModeloDatabase.inicializar();
+		
+		Conta conta = new Conta();
+		
+		if(ContaService.login(numeroConta, pin) ) {
 
 			status = 0;
-			statusText = ModeloConta.getStatusText();
+			statusText = Conta.getStatusText();
 			TelaHome.apresentar();
 
 		} else {
 			status = -1;
-			statusText = ModeloConta.getStatusText();
+			statusText = Conta.getStatusText();
 		}
 	}
 

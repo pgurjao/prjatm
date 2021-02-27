@@ -2,7 +2,7 @@ package is.lell.prjatm.visao;
 
 import is.lell.prjatm.controle.InputCtrl;
 import is.lell.prjatm.controle.SaqueCtrl;
-import is.lell.prjatm.modelo.ModeloConta;
+import is.lell.prjatm.modelo.Conta;
 
 public class TelaSaque {
 
@@ -22,7 +22,7 @@ public class TelaSaque {
 									, valorSaque);
 				
 				System.out.printf("Seu saldo atualizado é: %.2f %n"
-									, ModeloConta.getSaldo() );
+									, Conta.getSaldo() );
 				
 				System.out.println("=========================\n");
 

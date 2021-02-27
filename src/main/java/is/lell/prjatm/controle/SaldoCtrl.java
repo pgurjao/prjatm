@@ -1,10 +1,10 @@
 package is.lell.prjatm.controle;
 
-import is.lell.prjatm.modelo.ModeloConta;
+import is.lell.prjatm.modelo.Conta;
 
 public class SaldoCtrl {
 	
 	public static double saldo () {
-		return ModeloConta.getSaldo();
+		return Conta.getSaldo();
 	}
 }

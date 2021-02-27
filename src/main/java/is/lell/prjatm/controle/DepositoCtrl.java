@@ -1,6 +1,6 @@
 package is.lell.prjatm.controle;
 
-import is.lell.prjatm.modelo.ModeloConta;
+import is.lell.prjatm.modelo.Conta;
 
 public class DepositoCtrl {
 	
@@ -10,10 +10,10 @@ public class DepositoCtrl {
 
 	public static void depositar(double valorDeposito) {
 		
-		status = ModeloConta.depositar(Math.abs(valorDeposito ) );
+		status = Conta.depositar(Math.abs(valorDeposito ) );
 
 		if (status != 0 ) {
-			statusText = ModeloConta.getStatusText();
+			statusText = Conta.getStatusText();
 		}
 	}
 	

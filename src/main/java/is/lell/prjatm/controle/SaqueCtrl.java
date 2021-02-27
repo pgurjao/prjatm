@@ -1,6 +1,6 @@
 package is.lell.prjatm.controle;
 
-import is.lell.prjatm.modelo.ModeloConta;
+import is.lell.prjatm.modelo.Conta;
 
 public class SaqueCtrl {
 	
@@ -10,10 +10,10 @@ public class SaqueCtrl {
 
 	public static void sacar(double valorSaque) {
 		
-		status = ModeloConta.sacar(Math.abs(valorSaque) );
+		status = Conta.sacar(Math.abs(valorSaque) );
 
 		if (status != 0 ) {
-			statusText = ModeloConta.getStatusText();
+			statusText = Conta.getStatusText();
 		}
 	}
 	
