@@ -1,8 +1,10 @@
 package is.lell.prjatm.modelo;
 
-import is.lell.prjatm.Dados;
-
 import is.lell.prjatm.modelo.enums.statusEnum;
+
+//import is.lell.prjatm.Dados;
+
+//import is.lell.prjatm.modelo.enums.statusEnum;
 
 public class Conta {
 
@@ -10,6 +12,9 @@ public class Conta {
 	private int pin;
 	private double saldo;
 	private String nome;
+	
+	private String statusText;
+	private int status;
 
 	//	private List<Transacao> transacoes = new ArrayList<Transacao>;
 
@@ -25,8 +30,8 @@ public class Conta {
 
 		this.numeroConta = numero;
 		this.pin = pin;
-		this.saldo = 0;
-		this.nome = "";
+		this.saldo = saldo;
+		this.nome = nome;
 	}
 	
 	public Conta() {
@@ -38,7 +43,7 @@ public class Conta {
 	}
 
 	public int getPin() {
-		return pin;
+		return this.pin;
 	}
 
 	public double getSaldo() {
@@ -47,6 +52,60 @@ public class Conta {
 
 	public String getNome() {
 		return this.nome;
+	}
+	
+	public String getStatusText() {
+		return this.statusText;
+	}
+	
+	public int getStatus() {
+		return this.status;
+	}
+
+	public boolean temSaldoSuficiente(double valor, double saldo) {
+	
+		if ( saldo >= Math.abs(valor) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public int sacar(double valorSaque) {
+	
+		status = 0;
+	
+		if(temSaldoSuficiente(Math.abs(valorSaque), this.saldo) ) {
+			
+			this.saldo -= Math.abs(valorSaque);
+			/*
+			 * Conta contaNovoSaldo = new Conta(conta.getNumero(), conta.getPin(),
+			 * conta.getSaldo() - valorSaque, conta.getNome());
+			 * 
+			 * conta = contaNovoSaldo; // será que funciona?????????????????
+			 */			
+			statusText = statusEnum.SAQUE_OK.toString();
+			return status;
+		} else {
+			status = -1;			// Saldo Insuficiente
+			statusText = statusEnum.SALDO_INSUFICIENTE.toString();
+			return status;
+		}
+	}
+
+	public int depositar(double valorDeposito) {
+	
+		
+		this.saldo += Math.abs(valorDeposito);
+		/*
+		 * Conta contaNovoDeposito = new Conta(conta.getNumero(), conta.getPin(),
+		 * conta.getSaldo() + valorDeposito, conta.getNome());
+		 * 
+		 * conta = contaNovoDeposito; // será que funciona?????????????????
+		 */		
+		statusText = statusEnum.DEPOSITO_OK.toString();
+		status = 0; 
+		return status;
 	}
 
 //	public static Conta setData(int indice) {
@@ -65,5 +124,4 @@ public class Conta {
 //
 //		return conta;		
 //	}
-
 }

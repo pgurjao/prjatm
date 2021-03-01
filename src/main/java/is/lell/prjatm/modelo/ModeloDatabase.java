@@ -16,7 +16,6 @@ public class ModeloDatabase {
 	
 	public static void inicializar() {
 		
-		
 		for (int i = 0; i > Dados.contas.length ; i++) {
 
 //			Conta conta = new Conta(Conta.setData(i));
@@ -28,8 +27,5 @@ public class ModeloDatabase {
 
 			contasList.add(conta);
 		}
-			
-		
 	}
-
 }

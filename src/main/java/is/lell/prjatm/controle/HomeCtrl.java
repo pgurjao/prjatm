@@ -1,5 +1,6 @@
 package is.lell.prjatm.controle;
 
+import is.lell.prjatm.modelo.Conta;
 import is.lell.prjatm.visao.TelaDeposito;
 import is.lell.prjatm.visao.TelaSair;
 import is.lell.prjatm.visao.TelaSaldo;
@@ -7,19 +8,19 @@ import is.lell.prjatm.visao.TelaSaque;
 
 public class HomeCtrl {
 	
-	public static void apresentar (int choice) {
+	public static void apresentar (int choice, Conta conta) {
 		
 		switch (choice) {
 		case 1:
-			TelaSaldo.apresentar();
+			TelaSaldo.apresentar(conta);
 			break;
 
 		case 2:
-			TelaSaque.apresentar();
+			TelaSaque.apresentar(conta);
 			break;
 			
 		case 3:
-			TelaDeposito.apresentar();
+			TelaDeposito.apresentar(conta);
 			//			System.out.println("Depositar dinheiro");
 			break;
 			
@@ -28,7 +29,7 @@ public class HomeCtrl {
 			break;			
 
 		default:
-			System.out.println("\n \n tela DEFAULT - você não deveria estar aqui \n \n");
+			System.out.println("\n \n tela DEFAULT (undefined) - você não deveria estar aqui \n \n");
 			break;
 		}
 	}

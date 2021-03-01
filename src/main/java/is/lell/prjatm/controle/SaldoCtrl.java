@@ -4,7 +4,7 @@ import is.lell.prjatm.modelo.Conta;
 
 public class SaldoCtrl {
 	
-	public static double saldo () {
-		return Conta.getSaldo();
+	public static double saldo (Conta conta) {
+		return conta.getSaldo();
 	}
 }

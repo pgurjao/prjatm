@@ -8,13 +8,12 @@ import is.lell.prjatm.modelo.Conta;
 
 public class TelaHome {
 
-	public static void apresentar() {
+	public static void apresentar(Conta conta) {
 
 		int escolha = 0;
 		
 		do {
-			
-			apresentarMenuPrincipal(Conta.getNome());
+			apresentarMenuPrincipal(conta.getNome());
 
 			InputCtrl.getUserInput("integer");
 
@@ -27,8 +26,8 @@ public class TelaHome {
 
 			System.out.println("");
 
-			HomeCtrl.apresentar(escolha);
-		} while ( (escolha > 0 && escolha < 4) );
+			HomeCtrl.apresentar(escolha, conta);
+		} while (escolha > 0 && escolha < 4);
 	}
 
 

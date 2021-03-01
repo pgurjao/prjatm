@@ -14,17 +14,17 @@ public class LoginCtrl {
 
 		ModeloDatabase.inicializar();
 		
-		Conta conta = new Conta();
+		Conta conta = ContaService.login(numeroConta, pin);
 		
-		if(ContaService.login(numeroConta, pin) ) {
+		if(conta == null ) {
 
-			status = 0;
-			statusText = Conta.getStatusText();
-			TelaHome.apresentar();
+			status = -1;
+			statusText = ContaService.getStatusText();
 
 		} else {
-			status = -1;
-			statusText = Conta.getStatusText();
+			status = 0;
+			statusText = ContaService.getStatusText();
+			TelaHome.apresentar(conta);
 		}
 	}
 

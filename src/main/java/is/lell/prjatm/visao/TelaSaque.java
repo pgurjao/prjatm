@@ -6,7 +6,7 @@ import is.lell.prjatm.modelo.Conta;
 
 public class TelaSaque {
 
-	public static void apresentar() {
+	public static void apresentar(Conta conta) {
 
 		apresentarTelaSaque();
 
@@ -15,14 +15,14 @@ public class TelaSaque {
 		if (InputCtrl.getStatus() == 0 ) {
 
 			double valorSaque = Math.abs(InputCtrl.getDouble() );
-			SaqueCtrl.sacar(valorSaque);
+			SaqueCtrl.sacar(valorSaque, conta);
 
 			if (SaqueCtrl.getStatus() == 0) {
 				System.out.printf("Saque de %.2f realizado com sucesso %n"
 									, valorSaque);
 				
 				System.out.printf("Seu saldo atualizado é: %.2f %n"
-									, Conta.getSaldo() );
+									, conta.getSaldo() );
 				
 				System.out.println("=========================\n");
 

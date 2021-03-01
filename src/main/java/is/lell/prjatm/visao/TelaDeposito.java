@@ -2,10 +2,11 @@ package is.lell.prjatm.visao;
 
 import is.lell.prjatm.controle.InputCtrl;
 import is.lell.prjatm.controle.DepositoCtrl;
+import is.lell.prjatm.modelo.Conta;
 
 public class TelaDeposito {
 
-	public static void apresentar () {
+	public static void apresentar (Conta conta) {
 
 		apresentarTelaDeposito();
 
@@ -13,12 +14,12 @@ public class TelaDeposito {
 
 		if (InputCtrl.getStatus() == 0 ) {
 
-			double valorDeposito = (InputCtrl.getDouble() );
-			DepositoCtrl.depositar(valorDeposito);
+			double valorDeposito = Math.abs(InputCtrl.getDouble() );
+			DepositoCtrl.depositar(valorDeposito, conta);
 
 			if (DepositoCtrl.getStatus() == 0) {
 				System.out.printf("Depósito de %.2f realizado com sucesso %n"
-									, Math.abs(valorDeposito));
+									, valorDeposito);
 
 				System.out.println("=========================\n");
 

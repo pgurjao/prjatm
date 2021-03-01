@@ -1,9 +1,12 @@
 package is.lell.prjatm.modelo;
 
-import is.lell.prjatm.Dados;
-import is.lell.prjatm.modelo.enums.statusEnum;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+//import is.lell.prjatm.Dados;
+//import is.lell.prjatm.modelo.Conta;
+import is.lell.prjatm.modelo.enums.statusEnum;
 
 
 public class ContaService {
@@ -19,23 +22,25 @@ public class ContaService {
 		return indiceConta;
 	}
 
-	public Conta login(String numeroConta, int pin) {
+	public static Conta login(String numeroConta, int pin) {
 
 		boolean contaLocalizada = false;
-		int i = 0;
 		Conta conta = new Conta(numeroConta, pin);
-		
+		List<Conta> listConta = new ArrayList<Conta>();
+
+		indiceConta = listConta.indexOf(conta.getNumero().equalsIgnoreCase(numeroConta));
+
+//		int i = 0;
 //		Conta conta = null;
+		
 		
 //		List<Conta> collect = ModeloDatabase.contasList.stream()
 //				.filter( c -> c.getNumero().equals(numeroConta) )
 //				.collect(Collectors.toList());
 		
-		
-		
-		List<Conta> lConta = ModeloDatabase.contasList.stream().filter(c -> c.getNumero().equalsIgnoreCase(numeroConta)).findFirst().collect(Collectors.toList());
-
-//		Integer indiceConta = ModeloDatabase.contasList.stream().filter(conta -> conta.getNumero.equalsIgnoreCase(numeroConta)).findFirst().orElse(null);
+		//listConta = ModeloDatabase.contasList.stream().filter(c -> c.getNumero().equalsIgnoreCase(numeroConta)).findFirst().collect(Collectors.toList());
+		//listConta = ModeloDatabase.contasList.stream().filter(c -> c.getNumero().equalsIgnoreCase(numeroConta)).findFirst();
+		//Integer indiceConta = ModeloDatabase.contasList.stream().filter(conta -> conta.getNumero.equalsIgnoreCase(numeroConta)).findFirst().orElse(null);
 		
 		
 		// Procura sequencialmente no ARRAY o numeroConta até o final
@@ -51,7 +56,7 @@ public class ContaService {
 //		}
 
 		if (contaLocalizada) {
-			if (Dados.senhas[indiceConta] == pin ) {
+			if (conta.getPin() == pin ) {
 				statusText = statusEnum.PIN_CORRETO_LOGIN_OK.toString();
 				return conta;
 			} else {
@@ -62,41 +67,6 @@ public class ContaService {
 			statusText = statusEnum.CONTA_NAO_LOCALIZADA.toString();
 			return null;
 		}
-	}
-	
-	public static int sacar(double valorSaque, Conta conta) {
-
-		int status = 0;
-		valorSaque = Math.abs(valorSaque);
-
-		if(temSaldoSuficiente(valorSaque, conta) ) {
-			Dados.saldos[indiceConta] -= valorSaque;
-			statusText = statusEnum.SAQUE_OK.toString();
-			return status;
-		} else {
-			status = -1;			// Saldo Insuficiente
-			statusText = statusEnum.SALDO_INSUFICIENTE.toString();
-			return status;
-		}
-	}
-
-	public static boolean temSaldoSuficiente(double valor, Conta conta) {
-
-		valor = Math.abs(valor);
-		
-		if ( conta.getSaldo() >= valor ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public static int depositar(double valorDeposito) {
-
-		valorDeposito = Math.abs(valorDeposito);
-		Dados.saldos[indiceConta] += valorDeposito;
-		statusText = statusEnum.DEPOSITO_OK.toString();
-		return 0;
 	}
 	
 }
