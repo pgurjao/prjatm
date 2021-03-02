@@ -12,7 +12,7 @@ public class DepositoCtrl {
 	public static void depositar(double valorDeposito, Conta conta) {
 
 		status = conta.depositar(Math.abs(valorDeposito) );
-		statusText = ContaService.getStatusText();
+		statusText = conta.getStatusText();
 	}
 	
 	public static String getStatusText () {

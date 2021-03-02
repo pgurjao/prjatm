@@ -107,6 +107,13 @@ public class Conta {
 		status = 0; 
 		return status;
 	}
+	
+	public String toString() {
+		return "numConta: " + numeroConta + "\n" +
+				"pin: " + pin + "\n" +
+				"saldo: " + saldo + "\n" +
+				"nome: " + nome + "\n";
+	}
 
 //	public static Conta setData(int indice) {
 //
