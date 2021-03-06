@@ -11,6 +11,11 @@ public class InputCtrl {
 	private static char returnChar;
 
 	public static void getUserInput (String inputType) {
+		
+		/**
+		 * Classe que chama o scanner e trata os erros de input, etc. Disponibiliza via GET o input do usuário
+		 * @param "integer", "double", "String" <string> 
+		 */
 
 		Scanner scanner = new Scanner(System.in);
 
@@ -22,7 +27,9 @@ public class InputCtrl {
 			} catch (NumberFormatException e) {
 //				e.printStackTrace();
 				System.out.println("InputCtrl error: number.Format.Exception.stringToInteger");
-				status = -2;
+//				status = -2;
+			} finally {
+				System.out.println("entrou no finally");
 			}
 			if (status != -2) {
 				status = 0;

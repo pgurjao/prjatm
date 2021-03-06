@@ -27,7 +27,7 @@ public class TelaHome {
 			System.out.println("");
 
 			HomeCtrl.apresentar(escolha, conta);
-		} while (escolha > 0 && escolha < 4);
+		} while (escolha > 0 && escolha < 5);
 	}
 
 
@@ -38,7 +38,8 @@ public class TelaHome {
 		System.out.println("     1- Ver saldo");
 		System.out.println("     2- Sacar dinheiro");
 		System.out.println("     3- Depositar dinheiro");
-		System.out.println("     4- Sair \n");
+		System.out.println("     4- Ver extrato");
+		System.out.println("     5- Sair \n");
 		System.out.print("Enter a choice: ");
 	}
 }

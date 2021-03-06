@@ -1,6 +1,10 @@
 package is.lell.prjatm.modelo;
 
-import is.lell.prjatm.modelo.enums.statusEnum;
+import java.util.ArrayList;
+import java.util.List;
+
+import is.lell.prjatm.modelo.Enums.TipoTransacao;
+import is.lell.prjatm.modelo.Enums.statusEnum;
 
 //import is.lell.prjatm.Dados;
 
@@ -15,8 +19,8 @@ public class Conta {
 	
 	private String statusText;
 	private int status;
-
-	//	private List<Transacao> transacoes = new ArrayList<Transacao>;
+	
+	private List<Transacao> transacoes = new ArrayList<Transacao>();
 
 	public Conta(String numero, int pin) {
 
@@ -73,17 +77,19 @@ public class Conta {
 
 	public int sacar(double valorSaque) {
 	
+		valorSaque = Math.abs(valorSaque);
 		status = 0;
 	
-		if(temSaldoSuficiente(Math.abs(valorSaque), this.saldo) ) {
+		if(temSaldoSuficiente(valorSaque, saldo) ) {
 			
-			this.saldo -= Math.abs(valorSaque);
+			saldo -= Math.abs(valorSaque);
 			/*
 			 * Conta contaNovoSaldo = new Conta(conta.getNumero(), conta.getPin(),
 			 * conta.getSaldo() - valorSaque, conta.getNome());
 			 * 
 			 * conta = contaNovoSaldo; // será que funciona?????????????????
 			 */			
+			addTransacao(Enums.TipoTransacao.DEBITO, valorSaque);
 			statusText = statusEnum.SAQUE_OK.toString();
 			return status;
 		} else {
@@ -95,19 +101,29 @@ public class Conta {
 
 	public int depositar(double valorDeposito) {
 	
-		
-		this.saldo += Math.abs(valorDeposito);
+		valorDeposito = Math.abs(valorDeposito);
+		saldo += valorDeposito;
 		/*
 		 * Conta contaNovoDeposito = new Conta(conta.getNumero(), conta.getPin(),
 		 * conta.getSaldo() + valorDeposito, conta.getNome());
 		 * 
 		 * conta = contaNovoDeposito; // será que funciona?????????????????
 		 */		
+		addTransacao(Enums.TipoTransacao.CREDITO, valorDeposito);
 		statusText = statusEnum.DEPOSITO_OK.toString();
 		status = 0; 
 		return status;
 	}
 	
+	public List<Transacao> getTransacoes() {
+		return transacoes;
+	}
+
+	public void addTransacao(TipoTransacao tipoTransacao, double valor) {
+		Transacao transacao = new Transacao(tipoTransacao, valor, this);
+		transacoes.add(transacao);
+	}
+
 	public String toString() {
 		return "numConta: " + numeroConta + "\n" +
 				"pin: " + pin + "\n" +

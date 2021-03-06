@@ -2,6 +2,7 @@ package is.lell.prjatm.controle;
 
 import is.lell.prjatm.modelo.Conta;
 import is.lell.prjatm.visao.TelaDeposito;
+import is.lell.prjatm.visao.TelaExtrato;
 import is.lell.prjatm.visao.TelaSair;
 import is.lell.prjatm.visao.TelaSaldo;
 import is.lell.prjatm.visao.TelaSaque;
@@ -25,6 +26,10 @@ public class HomeCtrl {
 			break;
 			
 		case 4:
+			TelaExtrato.apresentar(conta);
+			break;
+			
+		case 5:
 			TelaSair.apresentar();
 			break;			
 

@@ -1,12 +1,12 @@
 package is.lell.prjatm.modelo;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 //import is.lell.prjatm.Dados;
 //import is.lell.prjatm.modelo.Conta;
-import is.lell.prjatm.modelo.enums.statusEnum;
+import is.lell.prjatm.modelo.Enums.statusEnum;
 
 //import is.lell.prjatm.modelo.ModeloDatabase;
 
@@ -28,22 +28,24 @@ public class ContaService {
 
 //		boolean contaLocalizada = false;
 //		Conta conta = new Conta(numeroConta, pin);
-		List<Conta> listaConta = new ArrayList<Conta>();
+		
+//		List<Conta> listaConta = new ArrayList<Conta>();
 
-		listaConta = ModeloDatabase.REPOSITORIO.stream()
-				.filter( c -> c.getNumero().equalsIgnoreCase(numeroConta) )
-				.collect(Collectors.toList());
+//		listaConta = ModeloDatabase.REPOSITORIO.stream()
+//				.filter( c -> c.getNumero().equalsIgnoreCase(numeroConta) )
+//				.collect(Collectors.toList());
+		
+		Conta buscaConta = ModeloDatabase.REPOSITORIO.stream().filter(x -> x.getNumero().equalsIgnoreCase(numeroConta)).findFirst().orElse(null);
 
-		if (listaConta.size() == 0 ||
-			!(listaConta.get(0).getNumero().equalsIgnoreCase(numeroConta)) ) {
+		if (buscaConta == null) {
 //			contaLocalizada = false;
 			statusText = statusEnum.CONTA_NAO_LOCALIZADA.toString();
 			return null;
-		} 
-		if (listaConta.get(0).getNumero().equalsIgnoreCase(numeroConta) ) {
-			if (listaConta.get(0).getPin() == pin ) {
+		}
+		if (buscaConta.getNumero().equalsIgnoreCase(numeroConta) ) {
+			if (buscaConta.getPin() == pin ) {
 				statusText = statusEnum.PIN_CORRETO_LOGIN_OK.toString();
-				return listaConta.get(0);
+				return buscaConta;
 			} else {
 				statusText = statusEnum.PIN_INCORRETO.toString();
 				return null;
@@ -52,6 +54,25 @@ public class ContaService {
 			statusText = statusEnum.CONTA_NAO_LOCALIZADA.toString();
 			return null;
 		}
+		
+//		if (listaConta.size() == 0 ||
+//			!(listaConta.get(0).getNumero().equalsIgnoreCase(numeroConta)) ) {
+////			contaLocalizada = false;
+//			statusText = statusEnum.CONTA_NAO_LOCALIZADA.toString();
+//			return null;
+//		} 
+//		if (listaConta.get(0).getNumero().equalsIgnoreCase(numeroConta) ) {
+//			if (listaConta.get(0).getPin() == pin ) {
+//				statusText = statusEnum.PIN_CORRETO_LOGIN_OK.toString();
+//				return listaConta.get(0);
+//			} else {
+//				statusText = statusEnum.PIN_INCORRETO.toString();
+//				return null;
+//			}
+//		} else {
+//			statusText = statusEnum.CONTA_NAO_LOCALIZADA.toString();
+//			return null;
+//		}
 
 			//		indiceConta = listConta.indexOf(conta.getNumero().equalsIgnoreCase(numeroConta));
 			//		int i = 0;

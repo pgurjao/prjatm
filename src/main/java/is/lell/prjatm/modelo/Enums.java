@@ -1,6 +1,6 @@
 package is.lell.prjatm.modelo;
 
-public class enums {
+public class Enums {
 	
 	public static enum statusEnum {
 		CONTA_LOCALIZADA,
@@ -10,6 +10,11 @@ public class enums {
 		SALDO_INSUFICIENTE,
 		SAQUE_OK,
 		DEPOSITO_OK
+	}
+	
+	public static enum TipoTransacao {
+		DEBITO,
+		CREDITO,
 	}
 
 }

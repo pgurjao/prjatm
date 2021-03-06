@@ -9,7 +9,7 @@ public class TelaSaldo {
 		
 		System.out.print("========================="
 				+ "\n"
-				+ "Tela do Saldo"
+				+ "Saldo"
 				+ "\n"
 				+ "\n");
 		System.out.printf("O saldo da sua conta é: %.2f %n", SaldoCtrl.saldo(conta) );
