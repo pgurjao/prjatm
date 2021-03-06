@@ -1,8 +1,6 @@
 package is.lell.prjatm.controle;
 
 import is.lell.prjatm.modelo.Conta;
-import is.lell.prjatm.modelo.ContaService;
-
 
 public class SaqueCtrl {
 	

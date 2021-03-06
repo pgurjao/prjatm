@@ -1,15 +1,7 @@
 package is.lell.prjatm.modelo;
 
-//import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
-//import is.lell.prjatm.Dados;
-//import is.lell.prjatm.modelo.Conta;
 import is.lell.prjatm.modelo.Enums.statusEnum;
-
-//import is.lell.prjatm.modelo.ModeloDatabase;
-
 
 public class ContaService {
 

@@ -17,6 +17,7 @@ public class InputCtrl {
 		 * @param "integer", "double", "String" <string> 
 		 */
 
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		switch (inputType) {
