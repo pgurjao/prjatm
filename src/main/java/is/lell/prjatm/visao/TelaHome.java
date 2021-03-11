@@ -1,5 +1,7 @@
 package is.lell.prjatm.visao;
 
+import java.util.Date;
+
 //import java.util.Scanner;
 
 import is.lell.prjatm.controle.HomeCtrl;
@@ -33,7 +35,10 @@ public class TelaHome {
 
 	private static void apresentarMenuPrincipal(String nomeCliente) {
 
+		Date data = new Date(System.currentTimeMillis() );
+		
 		System.out.println("Bem vindo(a), " + nomeCliente + "\n");
+		System.out.print("Hoje é: " + data + "\n");
 		System.out.println("Menu principal \n");
 		System.out.println("     1- Ver saldo");
 		System.out.println("     2- Sacar dinheiro");

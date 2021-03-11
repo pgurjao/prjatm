@@ -1,6 +1,8 @@
 package is.lell.prjatm.visao;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import is.lell.prjatm.controle.InputCtrl;
@@ -12,8 +14,11 @@ public class TelaLogin {
 		Locale.setDefault(Locale.US);
 		String numeroConta;
 		int pin = 0;
+		SimpleDateFormat sdf = new SimpleDateFormat("kk:mm:ss");
+		Date data = new Date();
 		
-		System.out.println("Bem vindo \n\n");
+		System.out.println("Bem vindo\n");
+		System.out.println("Agora são " + sdf.format(data) + "\n" );
 		System.out.print("Por favor digite o número da conta: ");
 		
 		InputCtrl.getUserInput("string");
