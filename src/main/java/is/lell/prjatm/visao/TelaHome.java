@@ -1,5 +1,6 @@
 package is.lell.prjatm.visao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 //import java.util.Scanner;
@@ -24,6 +25,7 @@ public class TelaHome {
 
 			} else {
 				System.out.println("ERRO TelaHome getUserInput: " + InputCtrl.getStatus());
+				System.out.println(InputCtrl.getStatusText() );
 			}
 
 			System.out.println("");
@@ -36,9 +38,10 @@ public class TelaHome {
 	private static void apresentarMenuPrincipal(String nomeCliente) {
 
 		Date data = new Date(System.currentTimeMillis() );
+		SimpleDateFormat spf = new SimpleDateFormat("EEE dd/MM/yyyy kk:mm:ss");
 		
 		System.out.println("Bem vindo(a), " + nomeCliente + "\n");
-		System.out.print("Hoje é: " + data + "\n");
+		System.out.print("Hoje é: " + spf.format(data) + "\n");
 		System.out.println("Menu principal \n");
 		System.out.println("     1- Ver saldo");
 		System.out.println("     2- Sacar dinheiro");

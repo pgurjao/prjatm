@@ -21,7 +21,7 @@ public class TelaExtrato {
 			for(Transacao transacao : transacoes) {
 				System.out.println(transacao.toString());
 			}
-			System.out.println("   Fim do extrato\n"
+			System.out.println("Fim do extrato\n"
 					+ "-----------------------------\n");
 		} else {
 			System.out.println("   Ainda não foram registradas transações nesta conta\n" 
@@ -32,15 +32,11 @@ public class TelaExtrato {
 
 	private static void apresentarTelaExtrato(Conta conta) {
 		
-		System.out.println("=============================\n");
-		System.out.println("   Extrato da conta: "
+		System.out.println("=============================");
+		System.out.println("    Extrato da conta: "
 							+ conta.getNumero()
-							+ "\n"
-							+ "-----------------------------\n"
-							+ "   Operações\n");
+							+ "\n\n"
+							+ "DATA       HORA        CONTA    VALOR      TIPO");
 		
 	}
-	
-	
-
 }

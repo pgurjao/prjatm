@@ -30,6 +30,8 @@ public class TelaLogin {
 		
 		if (InputCtrl.getStatus() == 0 ) {
 			pin = InputCtrl.getInteger();
+		} else {
+			System.out.println(InputCtrl.getStatusText() );
 		}
 		
 		System.out.println("");

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class InputCtrl {
 
 	private static int status = -1;
+	private static String statusText = "";
 	private static int returnInteger = 0;
 	private static double returnDouble = 0.00;
 	private static String returnString = "";
@@ -26,11 +27,13 @@ public class InputCtrl {
 			try {
 				returnInteger = Integer.parseInt(scanner.nextLine());
 			} catch (NumberFormatException e) {
-//				e.printStackTrace();
+				e.printStackTrace();
 				System.out.println("InputCtrl error: number.Format.Exception.stringToInteger");
+				statusText = e.getMessage();
+//				System.out.println(" zz ." + statusText + ". zz2 ");
 //				status = -2;
 			} finally {
-				System.out.println("entrou no finally");
+//				System.out.println("entrou no finally");
 			}
 			if (status != -2) {
 				status = 0;
@@ -47,6 +50,7 @@ public class InputCtrl {
 			} catch (NumberFormatException e) {
 //				e.printStackTrace();
 				System.out.println("InputCtrl error: number.Format.Exception.stringToDouble");
+				statusText = e.getMessage();
 				status = -2;
 			}
 			if (status != -2) {
@@ -67,6 +71,7 @@ public class InputCtrl {
 			} catch (NumberFormatException e) {
 //				e.printStackTrace();
 				System.out.println("InputCtrl error: number.Format.Exception.stringToChar");
+				statusText = e.getMessage();
 				status = -2;
 			}
 			if (status != -2) {
@@ -99,6 +104,10 @@ public class InputCtrl {
 	
 	public static char getChar() {
 		return returnChar;
+	}
+
+	public static String getStatusText() {
+		return statusText;
 	}
 	
 	/*                == Superseeded by getUserInput ==

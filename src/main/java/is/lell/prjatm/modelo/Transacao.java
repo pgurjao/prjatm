@@ -51,6 +51,20 @@ public class Transacao {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd kk:mm:ss");
 		sdf.setTimeZone(TimeZone.getTimeZone("GMT-3") );
 //		Date data = sdf.parse(null);
-		return "Transacao [tipoTransacao= " + tipoTransacao + ", valor=" + valor + ", conta=" + conta.getNumero() + "Data=" + sdf.format(data) + "]";
+//		return "Transacao [tipoTransacao= " + tipoTransacao + ", valor=" + valor + ", conta=" + conta.getNumero() + " Data=" + sdf.format(data) + "]";
+//		return "sdf.format(data) + conta.getNumero() + valor + "  " + tipoTransacao + "]";
+//		return "" + sdf.format(data) + "    " + conta.getNumero() + "    " + valor + "    " + tipoTransacao +"";
+
+		String retorno = "";
+
+		retorno = sdf.format(data) + "    "
+				+ conta.getNumero().toString() + "    "
+				+ Double.toString(valor) + "    "
+				+ tipoTransacao.toString();
+		
+//				, conta.getNumero().toString(), valor, tipoTransacao.toString() );
+//		return "%s    %i    %.2f    %s" sdf.format(data).toString(), conta.getNumero(), valor, tipoTransacao);
+		
+		return retorno;
 	}
 }

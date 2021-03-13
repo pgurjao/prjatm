@@ -31,6 +31,7 @@ public class TelaDeposito {
 		} else {
 			System.out.println("ERRO ModeloInput: "
 					+ InputCtrl.getStatus() );
+			System.out.println(InputCtrl.getStatusText() );
 			System.out.println("");
 		}
 	}
